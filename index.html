@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -648,6 +649,195 @@
         .market-note i { color: var(--primary-color); text-shadow: var(--glow-primary); }
 
 
+
+        /* Whale Session Capacity */
+        .whale-session-section {
+            background:
+                radial-gradient(circle at 18% 0%, rgba(0,255,136,0.16), transparent 34%),
+                radial-gradient(circle at 86% 100%, rgba(184,0,255,0.18), transparent 38%),
+                linear-gradient(180deg, rgba(7,7,11,0), rgba(184,0,255,0.055), rgba(7,7,11,0));
+            border-top: 1px solid rgba(0,255,136,0.12);
+            border-bottom: 1px solid rgba(184,0,255,0.14);
+        }
+        .whale-session-panel {
+            position: relative;
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) 280px;
+            gap: 28px;
+            align-items: center;
+            padding: 42px;
+            border-radius: 24px;
+            background: linear-gradient(135deg, rgba(255,255,255,0.045), rgba(184,0,255,0.07));
+            border: 1px solid rgba(0,255,136,0.30);
+            box-shadow: 0 0 36px rgba(0,255,136,0.12), inset 0 0 30px rgba(184,0,255,0.05);
+        }
+        .whale-session-panel::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            background:
+                linear-gradient(90deg, transparent, rgba(255,255,255,0.06), transparent);
+            transform: translateX(-120%) skewX(-15deg);
+            animation: whalePanelSweep 5.8s ease-in-out infinite;
+        }
+        .whale-session-copy,
+        .whale-queue-card {
+            position: relative;
+            z-index: 1;
+        }
+        .whale-session-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            margin-bottom: 16px;
+            padding: 8px 13px;
+            border-radius: 999px;
+            color: var(--primary-color);
+            background: rgba(0,255,136,0.08);
+            border: 1px solid rgba(0,255,136,0.28);
+            font-family: var(--font-heading);
+            font-size: 0.78rem;
+            font-weight: 900;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            box-shadow: 0 0 16px rgba(0,255,136,0.08);
+        }
+        .whale-session-copy h2 {
+            font-size: clamp(2rem, 4vw, 3.2rem);
+            margin-bottom: 14px;
+        }
+        .whale-session-copy p {
+            color: var(--text-muted);
+            font-size: 1.02rem;
+            line-height: 1.85;
+            max-width: 760px;
+        }
+        .whale-session-limits {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+        .whale-limit-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            padding: 10px 13px;
+            border-radius: 999px;
+            color: #fff;
+            background: rgba(0,0,0,0.34);
+            border: 1px solid rgba(255,255,255,0.09);
+            font-family: var(--font-heading);
+            font-size: 0.82rem;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+        .whale-limit-pill i {
+            color: var(--primary-color);
+            text-shadow: var(--glow-primary);
+        }
+        .whale-queue-card {
+            min-height: 245px;
+            padding: 26px 22px;
+            border-radius: 22px;
+            background:
+                radial-gradient(circle at 50% 10%, rgba(0,255,136,0.14), transparent 42%),
+                rgba(0,0,0,0.38);
+            border: 1px solid rgba(0,255,136,0.34);
+            text-align: center;
+            box-shadow: 0 0 26px rgba(0,255,136,0.13), inset 0 0 24px rgba(255,255,255,0.025);
+        }
+        .queue-label {
+            display: block;
+            margin-bottom: 12px;
+            color: var(--text-muted);
+            font-size: 0.82rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+        .whale-queue-number {
+            display: inline-flex;
+            align-items: baseline;
+            justify-content: center;
+            gap: 8px;
+            margin: 8px 0 12px;
+            font-family: var(--font-heading);
+            font-size: clamp(3.4rem, 7vw, 5.2rem);
+            line-height: 1;
+            font-weight: 900;
+            color: #fff;
+            text-shadow: 0 0 24px rgba(0,255,136,0.35);
+        }
+        .whale-queue-number.count-pop {
+            animation: whaleCountPop 0.52s cubic-bezier(.19,1,.22,1);
+        }
+        .queue-unit {
+            color: var(--primary-color);
+            font-family: var(--font-heading);
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+        .queue-status-line {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 9px;
+            color: #d8d8e8;
+            font-size: 0.88rem;
+        }
+        .queue-live-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 999px;
+            background: var(--primary-color);
+            box-shadow: 0 0 0 rgba(0,255,136,0.70);
+            animation: queueDotPulse 1.55s ease-in-out infinite;
+        }
+        .queue-ring {
+            width: 100%;
+            height: 6px;
+            margin-top: 22px;
+            border-radius: 999px;
+            overflow: hidden;
+            background: rgba(255,255,255,0.08);
+        }
+        .queue-ring span {
+            display: block;
+            width: 42%;
+            height: 100%;
+            border-radius: inherit;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color), #00d4ff);
+            animation: queueBarMove 2.6s ease-in-out infinite alternate;
+        }
+        @keyframes whalePanelSweep {
+            0%, 42% { transform: translateX(-120%) skewX(-15deg); opacity: 0; }
+            52% { opacity: 1; }
+            100% { transform: translateX(120%) skewX(-15deg); opacity: 0; }
+        }
+        @keyframes whaleCountPop {
+            0% { transform: scale(1); }
+            45% { transform: scale(1.22) rotate(-3deg); }
+            100% { transform: scale(1); }
+        }
+        @keyframes queueDotPulse {
+            0% { box-shadow: 0 0 0 0 rgba(0,255,136,0.70); }
+            72% { box-shadow: 0 0 0 11px rgba(0,255,136,0); }
+            100% { box-shadow: 0 0 0 0 rgba(0,255,136,0); }
+        }
+        @keyframes queueBarMove {
+            0% { width: 34%; transform: translateX(0); }
+            100% { width: 78%; transform: translateX(14%); }
+        }
+        @media (max-width: 992px) {
+            .whale-session-panel { grid-template-columns: 1fr; }
+            .whale-queue-card { min-height: 0; }
+        }
+
+
         /* Steps */
         .steps-container {
             display: flex;
@@ -1157,6 +1347,241 @@
         /* Simple Reveal Animation Class */
         .reveal { opacity: 0; transform: translateY(50px); transition: all 0.8s ease; }
         .reveal.active { opacity: 1; transform: translateY(0); }
+
+
+/* Discord CTA, Legal Modal, Animated Top Button */
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+.nav-discord-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    padding: 10px 16px;
+    border-radius: 999px;
+    color: #fff;
+    text-decoration: none;
+    font-family: var(--font-heading);
+    font-size: 0.78rem;
+    font-weight: 900;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    background: linear-gradient(135deg, rgba(184,0,255,0.24), rgba(0,255,136,0.12));
+    border: 1px solid rgba(0,255,136,0.34);
+    box-shadow: 0 0 18px rgba(0,255,136,0.12), inset 0 0 16px rgba(184,0,255,0.08);
+    transition: all var(--transition-speed);
+}
+.nav-discord-btn i {
+    color: var(--primary-color);
+    text-shadow: var(--glow-primary);
+    font-size: 1.05rem;
+}
+.nav-discord-btn:hover {
+    transform: translateY(-2px);
+    border-color: var(--primary-color);
+    box-shadow: var(--glow-primary);
+    background: linear-gradient(135deg, rgba(0,255,136,0.18), rgba(184,0,255,0.20));
+}
+.footer-legal-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+    flex-wrap: wrap;
+    margin: 16px auto 20px;
+    font-size: 0.82rem;
+    font-family: var(--font-heading);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+.footer-legal-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: all var(--transition-speed);
+}
+.footer-legal-links a:hover {
+    color: var(--primary-color);
+    text-shadow: var(--glow-primary);
+}
+.legal-modal-mask {
+    position: fixed;
+    inset: 0;
+    z-index: 12000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    background: rgba(1, 3, 8, 0.86);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.24s ease, visibility 0.24s ease;
+}
+.legal-modal-mask.active { opacity: 1; visibility: visible; }
+.legal-modal-window {
+    width: min(760px, 96vw);
+    max-height: min(780px, 86vh);
+    overflow: auto;
+    border-radius: 24px;
+    background:
+        radial-gradient(circle at 10% 0%, rgba(0,255,136,0.12), transparent 34%),
+        radial-gradient(circle at 100% 100%, rgba(184,0,255,0.16), transparent 42%),
+        linear-gradient(145deg, rgba(18,18,26,0.98), rgba(5,5,8,0.98));
+    border: 1px solid rgba(0,255,136,0.24);
+    box-shadow: 0 35px 110px rgba(0,0,0,0.58), 0 0 46px rgba(0,255,136,0.14);
+}
+.legal-modal-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 22px 24px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.legal-modal-head h3 {
+    color: #fff;
+    font-family: var(--font-heading);
+    font-size: 1.35rem;
+    font-weight: 900;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+.legal-close-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 14px;
+    border: 1px solid rgba(255,255,255,0.10);
+    background: rgba(255,255,255,0.06);
+    color: #fff;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: all 0.2s ease;
+}
+.legal-close-btn:hover {
+    background: rgba(0,255,136,0.16);
+    color: var(--primary-color);
+    transform: translateY(-1px);
+}
+.legal-modal-body {
+    padding: 24px;
+    color: #d8d8e8;
+    font-size: 0.96rem;
+    line-height: 1.75;
+}
+.legal-modal-body h4 {
+    margin: 24px 0 10px;
+    color: #fff;
+    font-family: var(--font-heading);
+    font-size: 1.03rem;
+    font-weight: 900;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+.legal-modal-body h4:first-child { margin-top: 0; }
+.legal-modal-body p { margin-bottom: 16px; color: #d8d8e8; }
+.legal-modal-body ul {
+    display: grid;
+    gap: 10px;
+    margin: 18px 0;
+    padding-left: 0;
+    list-style: none;
+}
+.legal-modal-body li {
+    position: relative;
+    padding-left: 22px;
+}
+.legal-modal-body li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.72em;
+    width: 8px;
+    height: 8px;
+    border-radius: 999px;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    box-shadow: var(--glow-primary);
+}
+.legal-updated {
+    display: inline-flex;
+    margin-bottom: 16px;
+    padding: 6px 10px;
+    border-radius: 999px;
+    color: var(--primary-color);
+    background: rgba(0,255,136,0.10);
+    border: 1px solid rgba(0,255,136,0.22);
+    font-family: var(--font-heading);
+    font-size: 0.74rem;
+    font-weight: 900;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+.legal-note {
+    margin-top: 18px;
+    padding: 14px 16px;
+    border-radius: 16px;
+    background: rgba(184,0,255,0.12);
+    border: 1px solid rgba(184,0,255,0.28);
+    color: #fff;
+}
+.top-motion-btn {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 1100;
+    width: 58px;
+    height: 58px;
+    border-radius: 18px;
+    display: grid;
+    place-items: center;
+    color: #000;
+    text-decoration: none;
+    background: linear-gradient(135deg, var(--primary-color), #00d4ff 52%, var(--secondary-color));
+    border: 1px solid rgba(255,255,255,0.18);
+    box-shadow: 0 0 24px rgba(0,255,136,0.26), 0 0 36px rgba(184,0,255,0.16);
+    overflow: hidden;
+    transition: all var(--transition-speed);
+    animation: topFloat 2.8s ease-in-out infinite;
+}
+.top-motion-btn::before {
+    content: '';
+    position: absolute;
+    inset: -45%;
+    background: conic-gradient(from 0deg, transparent, rgba(255,255,255,0.75), transparent 28%);
+    animation: topSpin 3.4s linear infinite;
+}
+.top-motion-btn::after {
+    content: '';
+    position: absolute;
+    inset: 4px;
+    border-radius: 15px;
+    background: rgba(7,7,11,0.86);
+}
+.top-motion-btn i {
+    position: relative;
+    z-index: 1;
+    color: var(--primary-color);
+    font-size: 1.25rem;
+    text-shadow: var(--glow-primary);
+    animation: topArrow 1.2s ease-in-out infinite;
+}
+.top-motion-btn:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 0 30px rgba(0,255,136,0.42), 0 0 46px rgba(184,0,255,0.24);
+}
+@keyframes topFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+@keyframes topSpin { to { transform: rotate(360deg); } }
+@keyframes topArrow { 0%, 100% { transform: translateY(2px); } 50% { transform: translateY(-3px); } }
+@media (max-width: 768px) {
+    .nav-container { align-items: center; }
+    .nav-actions { flex-direction: column; gap: 10px; }
+    .nav-discord-btn { padding: 9px 14px; font-size: 0.72rem; }
+    .top-motion-btn { width: 52px; height: 52px; right: 14px; bottom: 14px; }
+}
+
     </style>
 </head>
 <body>
@@ -1169,9 +1594,15 @@
     <nav>
         <div class="container nav-container">
             <a href="#" class="logo"><span class="brand-mark" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="ONDEX TITAN LAUNCH logo"> <defs> <linearGradient id="otl-g" x1="12" y1="10" x2="118" y2="118" gradientUnits="userSpaceOnUse"> <stop offset="0" stop-color="#00ff88"/> <stop offset="0.5" stop-color="#b800ff"/> <stop offset="1" stop-color="#00d4ff"/> </linearGradient> <linearGradient id="otl-core" x1="34" y1="20" x2="94" y2="108" gradientUnits="userSpaceOnUse"> <stop offset="0" stop-color="#ffffff"/> <stop offset="0.52" stop-color="#00ff88"/> <stop offset="1" stop-color="#b800ff"/> </linearGradient> <filter id="otl-glow" x="-40%" y="-40%" width="180%" height="180%"> <feGaussianBlur stdDeviation="4" result="blur"/> <feMerge> <feMergeNode in="blur"/> <feMergeNode in="SourceGraphic"/> </feMerge> </filter> </defs> <rect width="128" height="128" rx="28" fill="#07070b"/> <path d="M64 10 108 29v34c0 28-18 45-44 55C38 108 20 91 20 63V29L64 10Z" fill="#11121b" stroke="url(#otl-g)" stroke-width="5" filter="url(#otl-glow)"/> <circle cx="64" cy="58" r="31" fill="none" stroke="url(#otl-g)" stroke-width="6" opacity=".88"/> <path d="M40 39h48v12H70v42H58V51H40V39Z" fill="url(#otl-core)"/> <path d="M35 87h58l10 13H25l10-13Z" fill="url(#otl-g)" opacity=".95"/> <path d="M31 27 64 14l33 13-9 5-24-9-24 9-9-5Z" fill="#ffffff" opacity=".20"/> <text x="64" y="113" text-anchor="middle" font-family="Arial Black, Orbitron, sans-serif" font-size="12" font-weight="900" fill="#ffffff" letter-spacing="1.4">OTL</text> </svg></span> ONDEX <span>TITAN</span> LAUNCH</a>
-            <div class="lang-switcher">
-                <button class="lang-btn active" data-lang="en">🇬🇧 EN</button>
-                <button class="lang-btn" data-lang="ko">🇰🇷 한국어</button>
+            <div class="nav-actions">
+                <a class="nav-discord-btn" href="https://discord.gg/wezCaEma" target="_blank" rel="noopener noreferrer" aria-label="Join Discord">
+                    <i class="fa-brands fa-discord"></i>
+                    <span data-key="nav-discord">Join Discord</span>
+                </a>
+                <div class="lang-switcher">
+                    <button class="lang-btn active" data-lang="en">🇬🇧 EN</button>
+                    <button class="lang-btn" data-lang="ko">🇰🇷 한국어</button>
+                </div>
             </div>
         </div>
     </nav>
@@ -1321,6 +1752,33 @@
                 <div class="market-note">
                     <i class="fa-solid fa-shield-halved"></i>
                     <span data-key="market-note">Can be added to the launch package or ordered separately after your CA is live. No guaranteed volume, market cap, trading outcome, or artificial wash-trading service is offered.</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="section-padding whale-session-section" id="whale-session">
+        <div class="container reveal">
+            <div class="whale-session-panel">
+                <div class="whale-session-copy">
+                    <div class="whale-session-badge"><i class="fa-solid fa-crown"></i><span data-key="whale-badge">Whale Session Capacity</span></div>
+                    <h2 data-key="whale-title">Whale Session <span class="highlight-green">Priority Limit</span></h2>
+                    <p data-key="whale-desc">Whale Session is limited to 3 clients per day to provide high-performance service for a perfect launch. Check the current waiting clients before requesting your launch window.</p>
+                    <div class="whale-session-limits">
+                        <div class="whale-limit-pill"><i class="fa-solid fa-user-shield"></i><span data-key="whale-limit-1">Only 3 Whale Clients / Day</span></div>
+                        <div class="whale-limit-pill"><i class="fa-solid fa-bolt"></i><span data-key="whale-limit-2">Priority Launch Execution</span></div>
+                    </div>
+                </div>
+                <div class="whale-queue-card" aria-live="polite">
+                    <span class="queue-label" data-key="whale-queue-label">Current Waiting Clients</span>
+                    <div class="whale-queue-number" id="whaleQueueCount">5</div>
+                    <div class="queue-unit" data-key="whale-queue-unit">teams waiting</div>
+                    <div class="queue-status-line">
+                        <span class="queue-live-dot"></span>
+                        <span data-key="whale-queue-status">Live capacity watch</span>
+                    </div>
+                    <div class="queue-ring" aria-hidden="true"><span></span></div>
                 </div>
             </div>
         </div>
@@ -1495,13 +1953,30 @@
                 <i class="fa-regular fa-copy" style="cursor: pointer;" onclick="copyWallet()" title="Copy Wallet"></i>
             </div>
             <div class="footer-socials" aria-label="ONDEX TITAN LAUNCH social links">
-                <a class="footer-social-link" href="#" aria-label="Discord"><i class="fa-brands fa-discord"></i><span>Discord</span></a>
+                <a class="footer-social-link" href="https://discord.gg/wezCaEma" target="_blank" rel="noopener noreferrer" aria-label="Discord"><i class="fa-brands fa-discord"></i><span>Discord</span></a>
                 <a class="footer-social-link" href="https://x.com/ondexmaster" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i><span>Twitter</span></a>
                 <a class="footer-social-link" href="https://t.me/ondexmaster" target="_blank" rel="noopener noreferrer" aria-label="Telegram @ondexmaster"><i class="fa-brands fa-telegram"></i><span>TG <span class="footer-social-handle">@ondexmaster</span></span></a>
+            </div>
+            <div class="footer-legal-links">
+                <a href="#privacy-policy" data-legal-modal="privacy" data-key="legal-privacy-link">Privacy Policy</a>
+                <a href="#terms-of-service" data-legal-modal="terms" data-key="legal-terms-link">Terms of Service</a>
             </div>
             <p style="color: #555; font-size: 0.8rem;">&copy; 2025~2026 ONDEX TITAN LAUNCH. All rights reserved. Not financial advice.</p>
         </div>
     </footer>
+
+
+    <div id="legalModal" class="legal-modal-mask" aria-hidden="true">
+        <div class="legal-modal-window" role="dialog" aria-modal="true" aria-labelledby="legalModalTitle">
+            <div class="legal-modal-head">
+                <h3 id="legalModalTitle">Privacy Policy</h3>
+                <button type="button" class="legal-close-btn" id="legalModalClose" aria-label="Close">×</button>
+            </div>
+            <div class="legal-modal-body" id="legalModalBody"></div>
+        </div>
+    </div>
+
+    <a href="#" class="top-motion-btn" id="topMotionBtn" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></a>
 
     <div class="modal-overlay" id="gameModal">
         <div class="modal-content" id="modalContent">
@@ -1596,6 +2071,19 @@
             "game-desc-2": { en: "Classic snake multiplayer. Play in Landscape mode.", ko: "클래식 스네이크 멀티. 가로 모드 권장." },
             "game-desc-3": { en: "Soccer action game. Play in Portrait/Auto mode.", ko: "축구 액션 게임. 세로/자동 맞춤 화면." },
             "game-desc-4": { en: "Action sports HTML5 game. Play in Landscape mode.", ko: "액션 스포츠 HTML5 게임. 가로 화면 권장." },
+
+            "whale-badge": { en: "Whale Session Capacity", ko: "웨일 세션 수용량" },
+            "whale-title": { en: "Whale Session <span class='highlight-green'>Priority Limit</span>", ko: "Whale Session <span class='highlight-green'>우선 배정 제한</span>" },
+            "whale-desc": { en: "Whale Session is limited to 3 clients per day to provide high-performance service for a perfect launch. Check the current waiting clients before requesting your launch window.", ko: "Whale Session은 완벽한 런칭을 위한 고성능 서비스를 제공하기 위해 하루 3명의 고객으로 제한합니다. 런칭 윈도우를 요청하기 전에 현재 대기중인 고객을 확인하세요." },
+            "whale-limit-1": { en: "Only 3 Whale Clients / Day", ko: "하루 3명만 Whale Session 가능" },
+            "whale-limit-2": { en: "Priority Launch Execution", ko: "우선 런칭 실행" },
+            "whale-queue-label": { en: "Current Waiting Clients", ko: "현재 대기중인 고객" },
+            "whale-queue-unit": { en: "teams waiting", ko: "팀 대기중" },
+            "whale-queue-status": { en: "Live capacity watch", ko: "실시간 수용량 확인" },
+
+            "nav-discord": { en: "Join Discord", ko: "디스코드 참여" },
+            "legal-privacy-link": { en: "Privacy Policy", ko: "개인정보보호" },
+            "legal-terms-link": { en: "Terms of Service", ko: "이용약관" },
 
             "footer-payment": { en: "Official Launch Execution Wallet (100 SOL Budget):", ko: "공식 런칭 실행 지갑 (100 SOL 예산):" }
         };
@@ -1737,6 +2225,171 @@
         }
         window.addEventListener("scroll", reveal);
         reveal(); // Trigger on load
+
+
+        /* Whale Session Queue Counter */
+        let whaleQueueTimer = null;
+
+        function getRandomWhaleQueueCount() {
+            return Math.floor(Math.random() * 6) + 3; // 3~8
+        }
+
+        function getRandomWhaleQueueDelay() {
+            return (Math.floor(Math.random() * 11) + 15) * 60 * 1000; // 15~25 minutes
+        }
+
+        function updateWhaleQueueCount() {
+            const queueEl = document.getElementById('whaleQueueCount');
+            if (!queueEl) return;
+            queueEl.textContent = getRandomWhaleQueueCount();
+            queueEl.classList.remove('count-pop');
+            void queueEl.offsetWidth;
+            queueEl.classList.add('count-pop');
+        }
+
+        function scheduleWhaleQueueUpdate() {
+            clearTimeout(whaleQueueTimer);
+            whaleQueueTimer = setTimeout(() => {
+                updateWhaleQueueCount();
+                scheduleWhaleQueueUpdate();
+            }, getRandomWhaleQueueDelay());
+        }
+
+
+
+/* Legal Modal + Back To Top */
+const legalContent = {
+    privacy: {
+        en: {
+            title: "Privacy Policy",
+            body: [
+                '<span class="legal-updated">Last updated: 2026</span>',
+                '<h4>1. Information We Receive</h4>',
+                '<p>ONDEX TITAN LAUNCH may receive information you voluntarily provide through official channels, including project name, token address, public wallet address, social links, preferred launch timing, budget status, and operational instructions.</p>',
+                '<h4>2. How We Use Information</h4>',
+                '<ul><li>To confirm the requested launch execution workflow and coordinate support.</li><li>To prepare communication, scheduling, payment confirmation, and handoff.</li><li>To improve service clarity, response quality, and operational safety.</li><li>To prevent abuse, impersonation, spam, unsafe requests, and unauthorized use.</li></ul>',
+                '<h4>3. Sensitive Information</h4>',
+                '<p>Do not send private keys, seed phrases, exchange passwords, unrestricted server credentials, or remote desktop passwords. ONDEX TITAN LAUNCH does not need these items for support communication.</p>',
+                '<h4>4. Wallet and Payment Data</h4>',
+                '<p>Blockchain transactions are public and irreversible. You are responsible for verifying the official wallet address before sending funds. Public transaction data may be referenced only to confirm payment or workflow status.</p>',
+                '<h4>5. Third-Party Platforms</h4>',
+                '<p>Telegram, Discord, X, wallet providers, block explorers, hosting companies, RPC providers, launch platforms, and DEX tools operate under their own policies. We do not control those platforms.</p>',
+                '<h4>6. Data Sharing</h4>',
+                '<ul><li>We do not sell user data to advertisers.</li><li>We do not request or store private keys or seed phrases.</li><li>Limited project details may be used only when required to complete a requested support task or comply with a valid legal obligation.</li></ul>',
+                '<p class="legal-note">Crypto launches involve extreme risk. This policy explains information handling only; it does not remove market, liquidity, legal, or operational risk.</p>'
+            ].join('')
+        },
+        ko: {
+            title: "개인정보보호",
+            body: [
+                '<span class="legal-updated">최종 업데이트: 2026</span>',
+                '<h4>1. 수집될 수 있는 정보</h4>',
+                '<p>ONDEX TITAN LAUNCH는 공식 채널을 통해 사용자가 자발적으로 제공한 정보만 받을 수 있습니다. 여기에는 프로젝트명, 토큰 주소, 공개 지갑 주소, 소셜 링크, 희망 런칭 일정, 예산 상태, 운영 요청 내용이 포함될 수 있습니다.</p>',
+                '<h4>2. 정보 사용 목적</h4>',
+                '<ul><li>요청한 런칭 실행 워크플로우를 확인하고 지원을 조율하기 위해 사용합니다.</li><li>커뮤니케이션, 일정 조율, 결제 확인, 작업 전달을 준비하기 위해 사용합니다.</li><li>서비스 안내, 응답 품질, 운영 안전성을 개선하기 위해 사용합니다.</li><li>악용, 사칭, 스팸, 안전하지 않은 요청, 무단 사용을 방지하기 위해 사용합니다.</li></ul>',
+                '<h4>3. 민감 정보</h4>',
+                '<p>개인키, 시드 문구, 거래소 비밀번호, 제한 없는 서버 권한, 원격 데스크톱 비밀번호를 보내지 마세요. ONDEX TITAN LAUNCH는 지원 상담을 위해 이러한 정보가 필요하지 않습니다.</p>',
+                '<h4>4. 지갑 및 결제 정보</h4>',
+                '<p>블록체인 거래는 공개적이며 되돌릴 수 없습니다. 자금을 전송하기 전 공식 지갑 주소를 직접 확인할 책임은 사용자에게 있습니다. 공개 트랜잭션 정보는 결제 또는 작업 진행 상태 확인을 위해서만 참고될 수 있습니다.</p>',
+                '<h4>5. 제3자 플랫폼</h4>',
+                '<p>Telegram, Discord, X, 지갑 제공업체, 블록 익스플로러, 호스팅 회사, RPC 제공업체, 런칭 플랫폼, DEX 도구는 각자의 정책에 따라 운영됩니다. 우리는 해당 플랫폼을 통제하지 않습니다.</p>',
+                '<h4>6. 정보 공유</h4>',
+                '<ul><li>사용자 데이터를 광고주에게 판매하지 않습니다.</li><li>개인키 또는 시드 문구를 요청하거나 저장하지 않습니다.</li><li>요청된 지원 작업 수행 또는 유효한 법적 의무 이행에 필요한 경우에만 제한된 프로젝트 정보를 사용할 수 있습니다.</li></ul>',
+                '<p class="legal-note">암호화폐 런칭에는 극단적인 위험이 따릅니다. 본 정책은 정보 처리 방식에 대한 설명이며 시장, 유동성, 법률, 운영 위험을 제거하지 않습니다.</p>'
+            ].join('')
+        }
+    },
+    terms: {
+        en: {
+            title: "Terms of Service",
+            body: [
+                '<span class="legal-updated">Last updated: 2026</span>',
+                '<h4>1. Service Scope</h4>',
+                '<p>ONDEX TITAN LAUNCH provides launch execution presentation, workflow coordination, visibility support, setup guidance, and related operational assistance. The service is not financial, investment, legal, or tax advice.</p>',
+                '<h4>2. No Guaranteed Results</h4>',
+                '<ul><li>No profit, token price, market cap, listing, trending rank, volume result, or trading outcome is guaranteed.</li><li>Market outcomes depend on liquidity, project quality, market conditions, community response, and organic trader behavior.</li><li>Examples, interface visuals, or past outcomes do not promise future results.</li></ul>',
+                '<h4>3. Payments and Delivery</h4>',
+                '<p>Users must verify the official wallet address before payment. Once service work begins, payments are treated as final unless otherwise agreed in writing through official channels.</p>',
+                '<h4>4. User Responsibilities</h4>',
+                '<ul><li>You are responsible for your token, branding, legality, disclosures, wallet safety, and liquidity decisions.</li><li>You must not use the service for fraud, impersonation, theft, malware, market abuse, or illegal conduct.</li><li>You must not provide private keys, seed phrases, or credentials that could compromise assets.</li></ul>',
+                '<h4>5. Third-Party Dependencies</h4>',
+                '<p>Service availability may depend on Solana network conditions, RPC availability, DEX or launch platform status, wallet provider behavior, Telegram/Discord availability, hosting uptime, and other third-party systems.</p>',
+                '<h4>6. Refusal or Suspension</h4>',
+                '<p>ONDEX TITAN LAUNCH may refuse, delay, or stop support for unsafe, abusive, illegal, misleading, or technically unreasonable requests.</p>',
+                '<h4>7. Limitation of Liability</h4>',
+                '<p>To the maximum extent permitted by applicable law, ONDEX TITAN LAUNCH is not responsible for market losses, failed launches, third-party outages, wallet mistakes, user-side security failures, or irreversible blockchain transactions.</p>',
+                '<p class="legal-note">Use this service only if you understand crypto launch risk and accept full responsibility for your project decisions.</p>'
+            ].join('')
+        },
+        ko: {
+            title: "이용약관",
+            body: [
+                '<span class="legal-updated">최종 업데이트: 2026</span>',
+                '<h4>1. 서비스 범위</h4>',
+                '<p>ONDEX TITAN LAUNCH는 런칭 실행 프레젠테이션, 워크플로우 조율, 가시성 지원, 셋업 안내, 관련 운영 지원을 제공합니다. 본 서비스는 금융, 투자, 법률, 세무 조언이 아닙니다.</p>',
+                '<h4>2. 결과 보장 없음</h4>',
+                '<ul><li>수익, 토큰 가격, 시가총액, 상장, 트렌딩 순위, 거래량 결과, 거래 성과를 보장하지 않습니다.</li><li>시장 결과는 유동성, 프로젝트 품질, 시장 상황, 커뮤니티 반응, 실제 트레이더 행동에 따라 달라집니다.</li><li>예시, 인터페이스 시각 자료, 과거 결과는 미래 결과를 약속하지 않습니다.</li></ul>',
+                '<h4>3. 결제 및 전달</h4>',
+                '<p>사용자는 결제 전 공식 지갑 주소를 직접 확인해야 합니다. 서비스 작업이 시작된 이후의 결제는 공식 채널에서 별도로 서면 합의하지 않는 한 최종 처리됩니다.</p>',
+                '<h4>4. 사용자 책임</h4>',
+                '<ul><li>사용자는 자신의 토큰, 브랜딩, 합법성, 고지, 지갑 보안, 유동성 결정에 대한 책임을 집니다.</li><li>서비스를 사기, 사칭, 절도, 악성코드, 시장 악용, 불법 행위에 사용해서는 안 됩니다.</li><li>자산을 위험하게 만들 수 있는 개인키, 시드 문구, 계정 정보를 제공해서는 안 됩니다.</li></ul>',
+                '<h4>5. 외부 시스템 의존성</h4>',
+                '<p>서비스 가능 여부는 Solana 네트워크 상태, RPC 사용 가능성, DEX 또는 런칭 플랫폼 상태, 지갑 제공업체 동작, Telegram/Discord 사용 가능성, 호스팅 가동 상태 등 외부 시스템에 따라 달라질 수 있습니다.</p>',
+                '<h4>6. 거절 또는 중단</h4>',
+                '<p>ONDEX TITAN LAUNCH는 안전하지 않거나, 악용 가능성이 있거나, 불법이거나, 오해를 유발하거나, 기술적으로 합리적이지 않은 요청에 대한 지원을 거절, 지연, 중단할 수 있습니다.</p>',
+                '<h4>7. 책임 제한</h4>',
+                '<p>관련 법률이 허용하는 최대 범위 내에서 ONDEX TITAN LAUNCH는 시장 손실, 실패한 런칭, 외부 서비스 장애, 지갑 실수, 사용자 측 보안 실패, 되돌릴 수 없는 블록체인 거래에 대해 책임지지 않습니다.</p>',
+                '<p class="legal-note">암호화폐 런칭 위험을 이해하고 프로젝트 결정에 대한 모든 책임을 수락하는 경우에만 본 서비스를 이용하세요.</p>'
+            ].join('')
+        }
+    }
+};
+
+const legalModal = document.getElementById('legalModal');
+const legalModalTitle = document.getElementById('legalModalTitle');
+const legalModalBody = document.getElementById('legalModalBody');
+const legalModalClose = document.getElementById('legalModalClose');
+
+function openLegalModal(type) {
+    const legalType = type === 'terms' ? 'terms' : 'privacy';
+    const content = legalContent[legalType][currentLang] || legalContent[legalType].en;
+    legalModalTitle.textContent = content.title;
+    legalModalBody.innerHTML = content.body;
+    legalModal.classList.add('active');
+    legalModal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeLegalModal() {
+    legalModal.classList.remove('active');
+    legalModal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+}
+
+document.querySelectorAll('[data-legal-modal]').forEach(link => {
+    link.addEventListener('click', (event) => {
+        event.preventDefault();
+        openLegalModal(link.dataset.legalModal);
+    });
+});
+if (legalModalClose) legalModalClose.addEventListener('click', closeLegalModal);
+if (legalModal) {
+    legalModal.addEventListener('click', (event) => {
+        if (event.target === legalModal) closeLegalModal();
+    });
+}
+document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && legalModal && legalModal.classList.contains('active')) closeLegalModal();
+});
+
+const topMotionBtn = document.getElementById('topMotionBtn');
+if (topMotionBtn) {
+    topMotionBtn.addEventListener('click', (event) => {
+        event.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+}
+
 
         /* Copy Wallet Function */
         function copyWallet() {
